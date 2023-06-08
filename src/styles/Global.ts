@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html, body, input, textarea, button {
     font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.6;
   }
@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   ::-webkit-scrollbar-thumb {
     background-color: ${(props) => props.theme.blue};
