@@ -1,7 +1,15 @@
 import { styled } from 'styled-components'
 
 export const HeaderContainer = styled.header`
+  position: relative;
   width: 100%;
+  background: ${(props) => props.theme.profile};
+  overflow-y: hidden;
+`
+
+export const HeaderContent = styled.div`
+  width: 100%;
+  max-width: 1440px;
   height: 18.5rem;
   display: flex;
   justify-content: space-between;
@@ -26,4 +34,13 @@ export const HeaderContainer = styled.header`
 export const Brand = styled.img`
   width: 9.3rem;
   margin-top: 4rem;
+`
+export const Elipse = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: ${(props) => props.theme.blue};
+  filter: blur(500px);
 `
