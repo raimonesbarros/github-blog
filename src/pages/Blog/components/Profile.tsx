@@ -8,36 +8,37 @@ import github from '../../../assets/icons/githug.svg'
 import company from '../../../assets/icons/company.svg'
 import followers from '../../../assets/icons/followers.svg'
 import link from '../../../assets/icons/link.svg'
+import { UserType } from '..'
 
-export function Profile() {
+interface ProfileProps {
+  user: UserType
+}
+
+export function Profile({ user }: ProfileProps) {
   return (
     <ProfileContainer>
-      <img src="./src/assets/logo.svg" alt="" />
+      <img src={user.avatar_url} alt="" />
       <ProfileContent>
         <ProfileName>
-          <h2>Cameron Willianson</h2>
-          <a href="#">
+          <h2>{user.name}</h2>
+          <a href={user.url}>
             GITHUB
             <img src={link} alt="" />
           </a>
         </ProfileName>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque sit
-          temporibus, non, explicabo eligendi reiciendis aliquid ab nemo saepe
-          iusto optio quos!
-        </p>
+        <p>{user.bio ? user.bio : '💬 Ainda não possui uma bio no github'}</p>
         <ProfileInfo>
           <span>
             <img src={github} alt="" />
-            cameronwlt
+            {user.login}
           </span>
           <span>
             <img src={company} alt="" />
-            Rocketseat
+            {user.company ? user.company : 'Open to work'}
           </span>
           <span>
             <img src={followers} alt="" />
-            32 seguidores
+            {user.followers} seguidores
           </span>
         </ProfileInfo>
       </ProfileContent>

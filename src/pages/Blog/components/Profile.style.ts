@@ -22,9 +22,15 @@ export const ProfileContainer = styled.div`
   }
 `
 export const ProfileContent = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  p {
+    width: 100%;
+    height: 100%;
+  }
 `
 export const ProfileName = styled.div`
   display: flex;
@@ -45,8 +51,8 @@ export const ProfileName = styled.div`
     color: ${(props) => props.theme.blue};
 
     img {
-      width: 1.15rem;
-      height: 1.15rem;
+      width: 1rem;
+      height: 1rem;
     }
   }
 
