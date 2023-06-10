@@ -3,7 +3,9 @@ import { styled } from 'styled-components'
 export const BlogPostsContainer = styled.div`
   width: 100%;
   max-width: 416px;
+  max-height: 260px;
   padding: 2rem;
+  margin-bottom: 2rem;
   border-radius: 10px;
   background: ${(props) => props.theme.post};
 
@@ -25,7 +27,12 @@ export const BlogPostsContainer = styled.div`
     }
   }
 
-  p {
+  > span {
     margin-top: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `

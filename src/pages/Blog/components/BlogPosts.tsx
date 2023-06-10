@@ -1,18 +1,21 @@
+import ReactMarkdown from 'react-markdown'
+import { IssueType } from '..'
 import { BlogPostsContainer } from './BlogPosts.styles'
 
-export function BlogPosts() {
+interface BlogPostProps extends IssueType {
+  createdAt?: string
+}
+
+export function BlogPosts({ title, createdAt, body }: BlogPostProps) {
   return (
     <BlogPostsContainer>
       <div>
-        <h1>JavaScript data types and datastructues</h1>
-        <span>Há 1 dia</span>
+        <h1>{title}</h1>
+        <span>{createdAt}</span>
       </div>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-        placeat expedita odio numquam beatae voluptatibus quo! Vero tempore
-        consectetur incidunt, ducimus eos sunt maiores, aspernatur aut debitis
-        eaque vel quis?
-      </p>
+      <span>
+        <ReactMarkdown>{body}</ReactMarkdown>
+      </span>
     </BlogPostsContainer>
   )
 }
