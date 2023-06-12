@@ -9,8 +9,23 @@ import {
   PostHeaderInfo,
   PostHeaderLinks,
 } from './PostHeader.styles'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
-export function PostHeader() {
+interface PostHeaderProps {
+  post: {
+    html_url: string
+    title: string
+    created_at: string
+    comments: number
+    comments_url: string
+    user: {
+      login: string
+    }
+  }
+}
+
+export function PostHeader({ post }: PostHeaderProps) {
   return (
     <PostHeaderContainer>
       <PostHeaderLinks>
@@ -18,24 +33,31 @@ export function PostHeader() {
           <img src={back} alt="link" />
           <span>Voltar</span>
         </Link>
-        <a href="#">
+        <a href={post.html_url}>
           <span>Ver no github</span>
           <img src={link} alt="github" />
         </a>
       </PostHeaderLinks>
-      <h1>JavaScript data types and data structures</h1>
+      <h1>{post.title}</h1>
       <PostHeaderInfo>
         <p>
           <img src={github} alt="" />
-          <span>cameronwll</span>
+          <span>{post.user.login}</span>
         </p>
         <p>
           <img src={date} alt="" />
-          <span>Há 1 dia</span>
+          <span>
+            {formatDistanceToNow(new Date(post.created_at), {
+              addSuffix: true,
+              locale: ptBR,
+            })}
+          </span>
         </p>
         <p>
           <img src={comment} alt="" />
-          <span>5 comentários</span>
+          <a href={post.comments_url}>
+            <span>{post.comments} comentários</span>
+          </a>
         </p>
       </PostHeaderInfo>
     </PostHeaderContainer>

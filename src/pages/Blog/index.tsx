@@ -4,6 +4,7 @@ import { Profile } from './components/Profile'
 import { BlogContainer, BlogInfo, PostContainer } from './styles'
 import { api } from '../../fetch/axios'
 import { userCurrent, repoCurrent } from '../../owner'
+import { Link } from 'react-router-dom'
 
 export interface UserType {
   name: string
@@ -12,7 +13,7 @@ export interface UserType {
   login: string
   company: string
   followers: number
-  url: string
+  html_url: string
 }
 
 export interface IssueType {
@@ -71,12 +72,13 @@ export function Blog() {
       <PostContainer>
         {issues.items &&
           issues.items.map((issue) => (
-            <BlogPosts
-              key={issue.number}
-              title={issue.title}
-              createdAt={issue.created_at}
-              body={issue.body}
-            />
+            <Link key={issue.number} to={`/post/${issue.number}`}>
+              <BlogPosts
+                title={issue.title}
+                createdAt={issue.created_at}
+                body={issue.body}
+              />
+            </Link>
           ))}
       </PostContainer>
     </BlogContainer>

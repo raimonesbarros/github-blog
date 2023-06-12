@@ -1,22 +1,45 @@
+import { useParams } from 'react-router-dom'
 import { PostHeader } from './components/PostHeader'
 import { PostContainer, PostContent } from './styles'
+import { api } from '../../fetch/axios'
+import { repoCurrent, userCurrent } from '../../owner'
+import { useEffect, useState } from 'react'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+
+interface CurrentPostType {
+  html_url: string
+  title: string
+  created_at: string
+  comments: number
+  comments_url: string
+  body: string
+  user: {
+    login: string
+  }
+}
 
 export function Post() {
+  const [post, setPost] = useState<CurrentPostType>(Object)
+  const { number } = useParams()
+
+  const fetchPost = async () => {
+    const response = await api.get(
+      `/repos/${userCurrent}/${repoCurrent}/issues/${number}`,
+    )
+
+    setPost(response.data)
+  }
+
+  useEffect(() => {
+    fetchPost()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <PostContainer>
-      <PostHeader />
+      {post.user && <PostHeader post={post} />}
       <PostContent>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in JavaScript and what
-          properties they have. These can be used to build other data
-          structures. Wherever possible, comparisons with other languages are
-          drawn. Dynamic typing JavaScript is a loosely typed and dynamic
-          language. Variables in JavaScript are not directly associated with any
-          particular value type, and any variable can be assigned (and
-          re-assigned) values of all types:
-        </p>
+        <ReactMarkdown>{post.body}</ReactMarkdown>
       </PostContent>
     </PostContainer>
   )
