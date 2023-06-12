@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { BlogPosts } from './components/BlogPosts'
 import { Profile } from './components/Profile'
-import { BlogContainer, BlogInfo, PostContainer } from './styles'
+import { BlogContainer, BlogInfo, FormContainer, PostContainer } from './styles'
 import { api } from '../../fetch/axios'
 import { userCurrent, repoCurrent } from '../../owner'
 import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 
 export interface UserType {
   name: string
@@ -31,6 +32,12 @@ interface IssueInfoType {
 export function Blog() {
   const [user, setUser] = useState<UserType>(Object)
   const [issues, setIssues] = useState<IssueInfoType>(Object)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm()
 
   async function fetchUser() {
     const response = await api.get(`/users/${userCurrent}`)
@@ -48,6 +55,11 @@ export function Blog() {
     })
 
     setIssues(response.data)
+  }
+
+  function handleNewSearch(data: { search?: string }) {
+    fetchIssues(data.search)
+    reset()
   }
 
   useEffect(() => {
@@ -68,7 +80,15 @@ export function Blog() {
               : issues.total_count + ' publicações')}
         </span>
       </BlogInfo>
-      <input type="text" id="search" placeholder="Buscar conteúdo" />
+      <FormContainer onSubmit={handleSubmit(handleNewSearch)}>
+        <input
+          type="text"
+          id="search"
+          placeholder="Buscar conteúdo"
+          {...register('search')}
+        />
+        <button type="submit" disabled={isSubmitting}></button>
+      </FormContainer>
       <PostContainer>
         {issues.items &&
           issues.items.map((issue) => (

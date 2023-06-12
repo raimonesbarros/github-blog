@@ -9,7 +9,24 @@ export const BlogContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+`
+export const BlogInfo = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 
+  p {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: ${(props) => props.theme.subtitle};
+  }
+
+  span {
+    font-size: 0.875rem;
+    color: ${(props) => props.theme.span};
+  }
+`
+export const FormContainer = styled.form`
   input {
     width: 100%;
 
@@ -26,21 +43,9 @@ export const BlogContainer = styled.div`
       color: ${(props) => props.theme.label};
     }
   }
-`
-export const BlogInfo = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 
-  p {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: ${(props) => props.theme.subtitle};
-  }
-
-  span {
-    font-size: 0.875rem;
-    color: ${(props) => props.theme.span};
+  button {
+    display: none;
   }
 `
 export const PostContainer = styled.div`
