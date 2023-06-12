@@ -21,7 +21,7 @@ export function Profile({ user }: ProfileProps) {
       <ProfileContent>
         <ProfileName>
           <h2>{user.name}</h2>
-          <a href={user.url}>
+          <a href={user.html_url}>
             GITHUB
             <img src={link} alt="" />
           </a>
@@ -34,7 +34,7 @@ export function Profile({ user }: ProfileProps) {
           </span>
           <span>
             <img src={company} alt="" />
-            {user.company ? user.company : 'Open to work'}
+            {user.company ? user.company : 'Unknown'}
           </span>
           <span>
             <img src={followers} alt="" />
