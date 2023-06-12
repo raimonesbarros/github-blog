@@ -18,7 +18,6 @@ interface PostHeaderProps {
     title: string
     created_at: string
     comments: number
-    comments_url: string
     user: {
       login: string
     }
@@ -55,9 +54,7 @@ export function PostHeader({ post }: PostHeaderProps) {
         </p>
         <p>
           <img src={comment} alt="" />
-          <a href={post.comments_url}>
-            <span>{post.comments} comentários</span>
-          </a>
+          <span>{post.comments + ' comentários'}</span>
         </p>
       </PostHeaderInfo>
     </PostHeaderContainer>

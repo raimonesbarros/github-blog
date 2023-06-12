@@ -11,7 +11,6 @@ interface CurrentPostType {
   title: string
   created_at: string
   comments: number
-  comments_url: string
   body: string
   user: {
     login: string
