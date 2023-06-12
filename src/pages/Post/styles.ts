@@ -10,8 +10,12 @@ export const PostContainer = styled.section`
 export const PostContent = styled.article`
   padding: 2.5rem 2rem;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  a {
+    color: ${(props) => props.theme.blue};
+    text-decoration: underline;
+
+    &::after {
+      content: ' 🔗';
+    }
+  }
 `

@@ -3,10 +3,10 @@ import { styled } from 'styled-components'
 export const BlogPostsContainer = styled.div`
   width: 100%;
   max-width: 368px;
-  max-height: 260px;
+  height: 260px;
   padding: 2rem;
-  margin-bottom: 2rem;
   border-radius: 10px;
+  overflow: hidden;
   background: ${(props) => props.theme.post};
 
   > div {

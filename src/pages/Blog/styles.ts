@@ -5,6 +5,7 @@ export const BlogContainer = styled.div`
   max-width: 54rem;
 
   margin: 0 auto;
+  padding-bottom: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -47,6 +48,9 @@ export const PostContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   gap: 2rem;
-
   margin-top: 3rem;
+
+  a {
+    color: ${(props) => props.theme.text};
+  }
 `

@@ -19,6 +19,7 @@ export const ProfileContainer = styled.div`
     width: 9.25rem;
     height: 9.25rem;
     border-radius: 8px;
+    flex-shrink: 0;
   }
 `
 export const ProfileContent = styled.div`
