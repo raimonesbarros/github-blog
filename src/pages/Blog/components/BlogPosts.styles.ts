@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 export const BlogPostsContainer = styled.div`
   width: 100%;
-  max-width: 368px;
+  max-width: calc(368px - 2rem);
   height: 260px;
   padding: 2rem;
   border-radius: 10px;

@@ -21,6 +21,15 @@ export const ProfileContainer = styled.div`
     border-radius: 8px;
     flex-shrink: 0;
   }
+
+  @media screen and (width <= 590px) {
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+  }
 `
 export const ProfileContent = styled.div`
   width: 100%;
@@ -31,6 +40,10 @@ export const ProfileContent = styled.div`
   p {
     width: 100%;
     height: 100%;
+  }
+
+  @media screen and (width <= 590px) {
+    align-items: center;
   }
 `
 export const ProfileName = styled.div`
@@ -63,10 +76,17 @@ export const ProfileName = styled.div`
     line-height: 1.3;
     color: ${(props) => props.theme.title};
   }
+
+  @media screen and (width <= 590px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const ProfileInfo = styled.div`
   display: flex;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
 
   margin-top: 0.5rem;
@@ -76,6 +96,7 @@ export const ProfileInfo = styled.div`
   span {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     gap: 0.5rem;
 
     img {
