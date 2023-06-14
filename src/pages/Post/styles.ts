@@ -9,8 +9,13 @@ export const PostContainer = styled.section`
   transform: translateY(-5.5rem);
 `
 export const PostContent = styled.article`
+  width: 100%;
   padding: 2.5rem 2rem;
   font-size: 1.15rem;
+
+  img {
+    width: 100%;
+  }
 
   a {
     color: ${(props) => props.theme.blue};
