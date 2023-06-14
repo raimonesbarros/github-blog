@@ -13,6 +13,10 @@ export const PostContent = styled.article`
   padding: 2.5rem 2rem;
   font-size: 1.15rem;
 
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   img {
     width: 100%;
   }
