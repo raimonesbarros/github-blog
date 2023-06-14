@@ -10,7 +10,7 @@ export const PostContainer = styled.section`
 `
 export const PostContent = styled.article`
   padding: 2.5rem 2rem;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
 
   a {
     color: ${(props) => props.theme.blue};
