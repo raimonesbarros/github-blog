@@ -6,6 +6,7 @@ import { api } from '../../fetch/axios'
 import { userCurrent, repoCurrent } from '../../owner'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { EmptyBlog } from './components/EmptyBlog'
 
 export interface UserType {
   name: string
@@ -90,7 +91,7 @@ export function Blog() {
         <button type="submit" disabled={isSubmitting}></button>
       </FormContainer>
       <PostContainer>
-        {issues.items &&
+        {issues.items && issues.items.length > 0 ? (
           issues.items.map((issue) => (
             <Link key={issue.number} to={`/post/${issue.number}`}>
               <BlogPosts
@@ -99,7 +100,10 @@ export function Blog() {
                 body={issue.body}
               />
             </Link>
-          ))}
+          ))
+        ) : (
+          <EmptyBlog />
+        )}
       </PostContainer>
     </BlogContainer>
   )
