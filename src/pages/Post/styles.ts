@@ -4,11 +4,13 @@ export const PostContainer = styled.section`
   width: 100%;
   max-width: 864px;
   margin: 0 auto;
+  padding: 0 0.5rem;
 
   transform: translateY(-5.5rem);
 `
 export const PostContent = styled.article`
   padding: 2.5rem 2rem;
+  font-size: 1.5rem;
 
   a {
     color: ${(props) => props.theme.blue};
