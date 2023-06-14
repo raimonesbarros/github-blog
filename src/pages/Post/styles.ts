@@ -15,7 +15,7 @@ export const PostContent = styled.article`
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 
   img {
     width: 100%;
