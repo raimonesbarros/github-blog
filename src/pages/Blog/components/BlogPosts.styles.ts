@@ -9,7 +9,14 @@ export const BlogPostsContainer = styled.div`
   overflow: hidden;
   background: ${(props) => props.theme.post};
 
+  img {
+    width: 100%;
+    height: 130px;
+    border-radius: 4px;
+  }
+
   > div {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -22,6 +29,9 @@ export const BlogPostsContainer = styled.div`
     }
 
     span {
+      position: absolute;
+      right: 0;
+      transform: translateY(-100%);
       flex-shrink: 0;
       font-size: 0.875rem;
       color: ${(props) => props.theme.span};

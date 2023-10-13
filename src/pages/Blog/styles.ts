@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { styled } from "styled-components";
 
 export const BlogContainer = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const BlogContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-`
+`;
 export const BlogInfo = styled.div`
   width: 100%;
   display: flex;
@@ -25,7 +25,7 @@ export const BlogInfo = styled.div`
     font-size: 0.875rem;
     color: ${(props) => props.theme.span};
   }
-`
+`;
 export const FormContainer = styled.form`
   input {
     width: 100%;
@@ -47,7 +47,7 @@ export const FormContainer = styled.form`
   button {
     display: none;
   }
-`
+`;
 export const PostContainer = styled.div`
   width: 100%;
   display: flex;
@@ -59,4 +59,4 @@ export const PostContainer = styled.div`
   a {
     color: ${(props) => props.theme.text};
   }
-`
+`;
